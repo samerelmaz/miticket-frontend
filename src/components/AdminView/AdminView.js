@@ -19,8 +19,8 @@ function AdminView(props) {
                 id: ticket.id,
                 assignedTo: ticket.nombre,
                 status: ticket.ticket_pedido?'Pedido' : 'Sin pedir',
-                delete: <Button onClick={()=>deleteTicket(ticket.id)}>Eliminar ticket</Button>,
-                edit: <Button onClick={()=>{setEditableTicket(true);setEditTicketInfo({
+                delete: <Button onClick={()=>{setTicketFormVisible(false);setNewTicketVisible(true);setEditableTicket(false);deleteTicket(ticket.id)}}>Eliminar ticket</Button>,
+                edit: <Button onClick={()=>{setTicketFormVisible(false);setNewTicketVisible(true);setEditableTicket(true);setEditTicketInfo({
                     id: ticket.id,
                     id_user: ticket.id_user
                 })}}>Editar ticket</Button>
@@ -100,7 +100,7 @@ function AdminView(props) {
         <>
             <h1 className='center-text'>Listado de tickets</h1>
             <Table columns={tableColumns} dataSource={tableData} />
-            {newTicketVisibile && <Button type='primary' size='large' className='center-btn' onClick={()=>{setTicketFormVisible(true);setNewTicketVisible(false)}}>Crear nuevo ticket</Button>}
+            {newTicketVisibile && <Button type='primary' size='large' className='center-btn' onClick={()=>{setTicketFormVisible(true);setEditableTicket(false);setNewTicketVisible(false)}}>Crear nuevo ticket</Button>}
             {ticketFormVisible && <NewTicketForm setNewTicketVisible={setNewTicketVisible} setTicketFormVisible={setTicketFormVisible} deleteTicket={deleteTicket} fillTableData={fillTableData} />}
             {editableTicket && <EditTicketForm key={new Date()} editTicketInfo={editTicketInfo} setEditableTicket={setEditableTicket} fillTableData={fillTableData} /> /*Este key con la fecha es para forzar a react a generar un nuevo componente de edicion, permitiendo montar de nuevo el componente si se clickea para editar otro ticket. De lo contrario se queda la misma informacion del primer ticket editado*/}
         </>

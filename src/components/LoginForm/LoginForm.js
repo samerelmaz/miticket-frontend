@@ -19,7 +19,7 @@ function LoginForm(props) {
         const validPassword = validatePassword(ev.password);
         if (validEmail === '' && validPassword === '') {
             setLoading(true);
-            fetch('http://192.168.1.4:3001/login', {    // Si todos los inputs son validos, hago la peticion de login
+            fetch('http://localhost:3001/login', {    // Si todos los inputs son validos, hago la peticion de login
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ 

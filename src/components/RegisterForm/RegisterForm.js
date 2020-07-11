@@ -25,7 +25,7 @@ function RegisterForm(props) {
         const validUserType = validateNotEmpty(ev["user-type"]);
         if (validEmail === '' && validPassword === '' && validName === '' && validUserType === '') {
             setLoading(true);
-            fetch('http://192.168.1.4:3001/register', { // Si todos los inputs son validos, hago la peticion de registro
+            fetch('http://localhost:3001/register', { // Si todos los inputs son validos, hago la peticion de registro
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ 

@@ -1,0 +1,9 @@
+.mt-3 {
+    margin-top: 3rem;
+}
+.center-btn {
+    width: 250px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

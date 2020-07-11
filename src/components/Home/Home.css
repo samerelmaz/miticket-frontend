@@ -7,3 +7,9 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.logout-btn {
+    position: fixed;
+    top: 25px;
+    width: 150px;
+    left: calc(100% - 175px);
+}
